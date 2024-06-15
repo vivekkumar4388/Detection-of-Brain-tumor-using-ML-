@@ -1,0 +1,33 @@
+{% block content %}
+ <nav style="display: flex; justify-content: space-between; align-items: center; background-color: #333; color: #fff; padding: 10px 20px; margin-top: 0;">
+        <span style="font-size: 1.5rem;">Brain Tumor</span>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('login')}}" style="color: #fff; text-decoration: none;">Home</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('graph')}}" style="color: #fff; text-decoration: none;">Graph</a></li>
+             <li style="display: inline; margin-right: 20px;"><a href="{{url_for('graph')}}" style="color: #fff; text-decoration: none;">Accuracy</a></li>
+             <li style="display: inline;"><a href="#" id="logout-link" style="color: #fff; text-decoration: none;">Log out</a></li>
+ </ul>
+
+</nav>
+
+<center><h1>Accuracy Graph</h1></center>
+
+       <center>  <img src="{{ url_for('static', filename='accuracy_plot.png') }}" alt="Accuracy Plot"> </center>
+<center><p>This graph shows the training and validation accuracy during the identification and detection of brain tumors.</p></center>
+          <center>  <h1> Accuracy Results = 0.9716</h1></center>
+
+<script>
+    document.getElementById("logout-link").addEventListener("click", function(event){
+        event.preventDefault();  // Prevent the default behavior of the link
+
+        // Perform any logout actions here
+
+        // Display logout successful message
+        alert("Logout Successful");
+          window.location.href = "{{ url_for('login') }}";
+    });
+</script>
+
+
+
+{% endblock %}

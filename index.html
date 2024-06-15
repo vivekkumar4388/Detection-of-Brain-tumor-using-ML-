@@ -1,0 +1,105 @@
+{% extends "import.html" %} 
+{% block content %}
+
+<center>
+    <style>
+    h2 {
+            text-align: center;
+        }
+
+        form {
+            width: 300px;
+            margin: auto;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+</style>
+    <nav style="display: flex; justify-content: space-between; align-items: center; background-color: #333; color: #fff; padding: 10px 20px; margin-top: 0;">
+        <span style="font-size: 1.5rem;">Brain Tumor</span>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+             {% if 'user' in session %}
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('login')}}" style="color: #fff; text-decoration: none;">Home</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('graph')}}" style="color: #fff; text-decoration: none;">Graph</a></li>
+             <li style="display: inline; margin-right: 20px;"><a href="{{url_for('accuracy')}}" style="color: #fff; text-decoration: none;">Accuracy</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('bar_graph')}}" style="color: #fff; text-decoration: none;">BarGraph</a></li>
+        {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('signup') }}">Signup</a></li>
+
+        {% endif %}
+
+
+
+        </ul>
+
+</nav>
+
+
+
+<br><h2>Brain Tumor Classification Using Deep Learning</h2><br>
+
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+         <input type="file" name="file" class="btn btn-success" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+
+    <div class="image-section" style="display:none;">
+         <img id="imagePreview"  class="img-responsive" src="#" style="width:300px;height:300px;"/><br><br>
+         <div>
+            <button type="button" class="btn btn-info btn-lg " id="btn-predict">Predict!</button>
+         </div>
+    </div>
+
+
+
+    <div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+        <span> </span>
+    </h3>
+    <div class="graph" style=".."></div>
+
+    <footer style="text-align: center; background-color: #333; color: #fff; padding: 10px 20px; bottom: 0; position: fixed; width: 100%;">
+        <p>&copy; 2024 Brain Tumor Detection</p>
+    </footer>
+
+
+
+
+</center><br><br>
+
+
+<script>
+    document.getElementById("logout-link").addEventListener("click", function(event){
+        event.preventDefault();  // Prevent the default behavior of the link
+
+        // Perform any logout actions here
+
+        // Display logout successful message
+        alert("Logout Successful");
+          window.location.href = "{{ url_for('login') }}";
+    });
+</script>
+{% endblock %}

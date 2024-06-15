@@ -1,0 +1,67 @@
+{% block content %}
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+<body>
+    <nav style="display: flex; justify-content: space-between; align-items: center; background-color: #333; color: #fff; padding: 10px 20px; margin-top: 0;">
+        <span style="font-size: 1.5rem;">Brain Tumor</span>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('login')}}" style="color: #fff; text-decoration: none;">Home</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('login')}}" style="color: #fff; text-decoration: none;">Login Now</a></li>
+            </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="/signup" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <button type="submit" onclick="showConfirmation()">Sign Up</button>
+        </form>
+    </div>
+
+     <footer style="text-align: center; background-color: #333; color: #fff; padding: 10px 20px; bottom: 0; position: fixed; width: 100%;">
+        <p>&copy; 2024 Brain Tumor Detection</p>
+    </footer>
+{% endblock %}

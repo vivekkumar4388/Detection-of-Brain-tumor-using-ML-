@@ -1,0 +1,108 @@
+
+{% block content %}
+
+<style>
+    h2 {
+            text-align: center;
+        }
+
+        form {
+            width: 300px;
+            margin: auto;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+</style>
+    <body>
+    <nav style="display: flex; justify-content: space-between; align-items: center; background-color: #333; color: #fff; padding: 10px 20px; margin-top: 0;">
+        <span style="font-size: 1.5rem;">Brain Tumor</span>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('login')}}" style="color: #fff; text-decoration: none;">Home</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('login')}}" style="color: #fff; text-decoration: none;">Login</a></li>
+            <li style="display: inline;"><a href="{{url_for('signup')}}" style="color: #fff; text-decoration: none;">Signup</a></li>
+        </ul>
+
+
+
+    </nav>
+
+     <div style="text-align: center; margin-top: 20px;">
+            <h1 style="font-weight: bold;">Welcome to Brain Tumor Detection</h1>
+            <img src="https://americanhealthimaging.com/wp-content/uploads/2016/05/Lose_Dose_CT.jpg" alt="Description of the image">
+        </div>
+
+
+
+        <div style="margin-top: 50px; padding: 20px; background-color: #e0e0e0;">
+            <center><h2>How to Do</h2></center>
+            <p>1. <strong>Login:</strong> Sign in with your credentials to access the brain tumor detection platform.</p>
+            <p>2. <strong>Upload Image:</strong> After logging in, upload your MRI image containing the brain scan using the provided interface.</p>
+            <p>3. <strong>Get Results:</strong> Once the image is uploaded, our advanced deep learning algorithms will analyze it to detect any signs of brain tumors. You will receive the results promptly, providing valuable insights into your health condition.</p>
+            <p>4. <strong>Take Action:</strong> Based on the results obtained, you can consult with a healthcare professional for further evaluation and treatment planning.</p>
+        </div>
+
+
+        <div align="center">
+          <div align="center" class="border">
+             <div class="header">
+                <h1 class="word">Login</h1>
+                 {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+             </div></br></br></br>
+            <h2 class="word">
+                <form action="/" method="post">
+
+                   <input type="text" name="username" id="username" placeholder="Username" required>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <button type="submit" class="btn">Log In</button></br></br>
+                </form>
+            </h2>
+              <p class="bottom">Don't have an account?  <a  href="{{ url_for('signup') }}"> Sign Up here</a></p>
+
+              <div style="margin-top: 50px; padding: 20px; background-color: #f2f2f2;">
+            <center><h2>About Us</h2></center>
+            <p>We are a team of healthcare innovators leveraging deep learning technology to revolutionize brain tumor detection. By analyzing MRI scans with advanced neural networks, our mission is to provide early and accurate diagnosis, leading to improved patient outcomes.</p>
+
+          </div>
+              <footer style="text-align: center; background-color: #333; color: #fff; padding: 10px 20px; bottom: 0; width: 100%;">
+        <p>&copy; 2024 Brain Tumor Detection</p>
+    </footer>
+          </div>
+        </div>
+    </body>
+
+
+    <script>
+        document.getElementById("login-link").addEventListener("click", function(event){
+            event.preventDefault();  // Prevent the default behavior of the link
+
+            // Scroll to the login section
+            document.getElementById("login-section").scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+
+{% endblock %}

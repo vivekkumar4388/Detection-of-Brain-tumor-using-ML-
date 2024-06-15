@@ -1,0 +1,48 @@
+{% extends "import.html" %}
+{% block content %}
+
+    <style>
+        img{
+            height: 2%;
+            width: 90%;
+        }
+    </style>
+
+
+
+        <nav style="display: flex; justify-content: space-between; align-items: center; background-color: #333; color: #fff; padding: 10px 20px;">
+            <span style="font-size: 1.5rem;">Brain Tumor</span>
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <li style="display: inline; margin-right: 20px;"><a href="mainindex.html" style="color: #fff; text-decoration: none;">Home</a></li>
+                <li style="display: inline; margin-right: 20px;"><a href="login.html" style="color: #fff; text-decoration: none;">Login</a></li>
+                <li style="display: inline;"><a href="signup.html" style="color: #fff; text-decoration: none;">Signup</a></li>
+            </ul>
+        </nav>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <h1 style="font-weight: bold;">Welcome to Brain Tumor Detection</h1>
+            <img src="https://americanhealthimaging.com/wp-content/uploads/2016/05/Lose_Dose_CT.jpg" alt="Description of the image">
+        </div>
+
+        <div style="margin-top: 50px; padding: 20px; background-color: #f2f2f2;">
+            <center><h2>About Us</h2></center>
+            <p>We are a team of healthcare innovators leveraging deep learning technology to revolutionize brain tumor detection. By analyzing MRI scans with advanced neural networks, our mission is to provide early and accurate diagnosis, leading to improved patient outcomes.</p>
+
+          </div>
+
+        <div style="margin-top: 50px; padding: 20px; background-color: #e0e0e0;">
+            <center><h2>How to Do</h2></center>
+            <p>1. <strong>Login:</strong> Sign in with your credentials to access the brain tumor detection platform.</p>
+            <p>2. <strong>Upload Image:</strong> After logging in, upload your MRI image containing the brain scan using the provided interface.</p>
+            <p>3. <strong>Get Results:</strong> Once the image is uploaded, our advanced deep learning algorithms will analyze it to detect any signs of brain tumors. You will receive the results promptly, providing valuable insights into your health condition.</p>
+            <p>4. <strong>Take Action:</strong> Based on the results obtained, you can consult with a healthcare professional for further evaluation and treatment planning.</p>
+        </div>
+
+        <footer style="text-align: center; background-color: #333; color: #fff; padding: 10px 20px; bottom: 0; width: 100%;">
+            <p>&copy; 2024 Brain Tumor Detection</p>
+        </footer>
+
+
+
+
+{% endblock %}

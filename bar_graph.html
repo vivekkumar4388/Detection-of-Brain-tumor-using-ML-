@@ -1,0 +1,27 @@
+{% block content %}
+
+<nav style="display: flex; justify-content: space-between; align-items: center; background-color: #333; color: #fff; padding: 10px 20px; margin-top: 0;">
+        <span style="font-size: 1.5rem;">Brain Tumor</span>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('login')}}" style="color: #fff; text-decoration: none;">Home</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('graph')}}" style="color: #fff; text-decoration: none;">Graph</a></li>
+             <li style="display: inline; margin-right: 20px;"><a href="{{url_for('accuracy')}}" style="color: #fff; text-decoration: none;">Accuracy</a></li>
+             <li style="display: inline;"><a href="#" id="logout-link" style="color: #fff; text-decoration: none;">Log out</a></li>
+        </ul>
+
+</nav>
+
+<body>
+
+<h1>Bar Graph </h1>
+    <img src="{{ plot_file }}" alt="Bar Graph">
+
+</body>
+
+
+<footer style="text-align: center; background-color: #333; color: #fff; padding: 10px 20px; bottom: 0 ;width: 100%;">
+        <p>&copy; 2024 Brain Tumor Detection</p>
+    </footer>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% block content %}
+
+ <body>
+    <nav style="display: flex; justify-content: space-between; align-items: center; background-color: #333; color: #fff; padding: 10px 20px; margin-top: 0;">
+        <span style="font-size: 1.5rem;">Brain Tumor</span>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('login')}}" style="color: #fff; text-decoration: none;">Home</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="{{url_for('login')}}" style="color: #fff; text-decoration: none;">Login</a></li>
+             <li style="display: inline;"><a href="#" id="logout-link" style="color: #fff; text-decoration: none;">Log out</a></li>
+
+
+        </ul>
+    </nav>
+
+<center> <h1> Graph Plotting</h1></center>
+    <center> <p>This plot shows the performance of the brain tumor identification and detection system over time.</p></center>
+
+
+ <center> <img src="{{ url_for('static', filename='confusion_matrix.png') }}" alt="Confusion Matrix"><center></center>
+
+
+  <footer style="text-align: center; background-color: #333; color: #fff; padding: 10px 20px; bottom: 0; position : fixed ;width: 100%;">
+        <p>&copy; 2024 Brain Tumor Detection</p>
+    </footer>
+
+
+    <script>
+    document.getElementById("logout-link").addEventListener("click", function(event){
+        event.preventDefault();  // Prevent the default behavior of the link
+
+        // Perform any logout actions here
+
+        // Display logout successful message
+        alert("Logout Successful");
+          window.location.href = "{{ url_for('login') }}";
+    });
+</script>
+
+
+{% endblock %}
